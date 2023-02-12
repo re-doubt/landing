@@ -1,6 +1,5 @@
 import { Box, Image, useQuery, Text, SkeletonCircle } from '@chakra-ui/react'
-import { useEffect } from 'react'
-import { apiClient, API_URL } from '../../api/client'
+import { API_URL } from '../../api/client'
 import { margins, borderRadius, boxShadow } from '../../pages'
 
 const imageSize = '36px'

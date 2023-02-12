@@ -1,12 +1,14 @@
-import { Box } from '@chakra-ui/react'
-import { useRef } from 'react'
+import { Box, Text, useToast } from '@chakra-ui/react'
+import { useEffect, useRef, useState } from 'react'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
-import { apiClient } from '../api/client'
 import { Header } from '../components/common/Header'
 import { Intro } from '../components/sections/Intro'
 import { UseCases } from '../components/sections/UseCases'
 import { Jettons } from '../components/sections/Jettons'
 import { Footer } from '../components/common/Footer'
+import { useQuery } from 'react-query'
+import { apiClient } from '../api/client'
+import { Toast } from '../components/common/Toast'
 
 export const bodyFontSizes = {
 	base: '12px',
@@ -21,7 +23,32 @@ export const borderRadius = '24px'
 export const boxShadow = '8px 8px 5px rgba(0, 0, 0, 0.07);'
 const sectionMargins = { base: '20px', md: '20px', lg: '60px' }
 
-export default function Home ({ jettons }) {
+export default function Home () {
+	const [jettons, setJettons] = useState([])
+	const { data, isLoading, isError } = useQuery('top-jettons', async () => {
+		return await apiClient.get('/v1/jettons/top')
+	})
+	const toast = useToast()
+
+	useEffect(() => {
+		if (isError) {
+			toast({
+				render: () => (
+					<Toast
+						text="Error loading jettons, retrying..."
+						color="var(--chakra-colors-red)"
+					/>
+				)
+			})
+		}
+	}, [isError])
+
+	useEffect(() => {
+		if (data?.data?.jettons) {
+			setJettons(data.data.jettons)
+		}
+	}, [data])
+
 	const containerRef = useRef()
 	return (
 		<LocomotiveScrollProvider
@@ -32,7 +59,11 @@ export default function Home ({ jettons }) {
 			}}
 			containerRef={containerRef}
 		>
-			<main data-scroll-container ref={containerRef} className="container">
+			<main
+				data-scroll-container
+				ref={containerRef}
+				className="container"
+			>
 				<Box data-scroll-section {...wrapperProps}>
 					<Header />
 
@@ -41,7 +72,15 @@ export default function Home ({ jettons }) {
 					<UseCases />
 
 					<Box mt={sectionMargins}>
-						<Jettons jettons={jettons.slice(0, 3)} />
+						{isLoading
+							? (
+								<Text fontSize={bodyFontSizes}>
+                                Loading jettons...
+								</Text>
+							)
+							: (
+								<Jettons jettons={jettons.slice(0, 3)} />
+							)}
 					</Box>
 
 					<Footer mt={{ base: '40px', md: '60px', lg: '80px' }} />
@@ -53,12 +92,4 @@ export default function Home ({ jettons }) {
 
 const wrapperProps = {
 	padding: '60px'
-}
-
-export async function getServerSideProps () {
-	const data = (await apiClient.get('/v1/jettons/top')).data
-
-	return {
-		props: { jettons: data?.jettons || [] }
-	}
 }
