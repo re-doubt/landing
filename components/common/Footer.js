@@ -10,7 +10,7 @@ const links = [
 	},
 	{
 		item: <>Launch app</>,
-		link: 'https://beta.redoubt.online'
+		link: 'https://app.redoubt.online'
 	},
 	{
 		item: (

@@ -38,7 +38,7 @@ export const Header = () => {
 						xl: '24px'
 					}}
 				>
-					<Link href="http://beta.redoubt.online">Launch app</Link>
+					<Link href="https://app.redoubt.online">Launch app</Link>
 				</Button>
 			</Box>
 		</Box>
