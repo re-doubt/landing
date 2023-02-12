@@ -3,30 +3,53 @@ import { margins } from '../../pages'
 import { GithubIcon } from './icons/GithubIcon'
 import { TgIcon } from './icons/TgIcon'
 
+const links = [
+    {
+        item: <>Documentation</>,
+        link: 'https://github.com/re-doubt/.github/blob/main/profile/README.MD',
+    },
+    {
+        item: <>Launch app</>,
+        link: 'https://beta.redoubt.online',
+    },
+    {
+        item: (
+            <GithubIcon color="var(--chakra-colors-black)" w="30px" h="30px" />
+        ),
+        link: 'https://github.com/re-doubt/',
+    },
+    {
+        item: <TgIcon color="var(--chakra-colors-black)" w="30px" h="30px" />,
+        link: 'https://t.me/re_doubt',
+    },
+]
+
 export const Footer = ({ ...rest }) => {
-	return (
-		<Box display="flex" justifyContent="flex-end" alignItems="center" {...rest}>
-			<Grid
-				display="grid"
-				gridTemplateColumns="repeat(4,max-content)"
-				gridGap={margins}
-			>
-				<Link
-					href="https://github.com/re-doubt/.github/blob/main/profile/README.MD"
-					target="_blank"
-				>
-          Documentation
-				</Link>
-				<Link href="https://beta.redoubt.online" target="_blank">
-          Launch app
-				</Link>
-				<Link href="https://github.com/re-doubt/" target="_blank">
-					<GithubIcon color="var(--chakra-colors-black)" w="30px" h="30px" />
-				</Link>
-				<Link href="https://t.me/re_doubt" target="_blank">
-					<TgIcon color="var(--chakra-colors-black)" w="30px" h="30px" />
-				</Link>
-			</Grid>
-		</Box>
-	)
+    return (
+        <Box
+            display="flex"
+            justifyContent="flex-end"
+            alignItems="center"
+            {...rest}
+        >
+            <Grid
+                display="grid"
+                gridTemplateColumns={`repeat(${links.length},max-content)`}
+                gridGap={margins}
+            >
+                {links.map(({ item, link }, i) => (
+                    <Box
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        key={`link-${i}`}
+                    >
+                        <Link href={link} target="_blank">
+                            {item}
+                        </Link>
+                    </Box>
+                ))}
+            </Grid>
+        </Box>
+    )
 }
