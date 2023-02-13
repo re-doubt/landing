@@ -52,7 +52,7 @@ export const Jettons = ({ jettons }) => {
 				data-scroll-speed={2}
 			>
 				<Button>
-					<Link href="http://beta.redoubt.online">Explore in app</Link>
+					<Link href="https://app.redoubt.online">Explore in app</Link>
 				</Button>
 			</Box>
 		</Box>
