@@ -9,12 +9,12 @@ const cases = [
 		text: 're:doubt is a powerful tool for TON blockchain research, complete with all the tools you need to discover, explore, and visualize'
 	},
 	{
-		title: 'Explore',
-		text: 're:doubt is a powerful tool for TON blockchain research, complete with all the tools you need to discover, explore, and visualize'
+		title: 'Create and share',
+		text: 'Community-created analytics: Tons of dashboards for hundreds of projects. Query human-readable data with SQL. Follow key metrics for DeFi, NFTs, and more.'
 	},
 	{
-		title: 'Explore',
-		text: 're:doubt is a powerful tool for TON blockchain research, complete with all the tools you need to discover, explore, and visualize'
+		title: 'Detect and monitor',
+		text: 're:doubt is a community-based security platform to prevent or mitigate smart contract exploits as they occur. The goal of re:doubt is to detect threats and other system-critical issues in real-time. '
 	}
 ]
 
