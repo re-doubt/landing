@@ -5,12 +5,12 @@ import { margins } from '../../pages'
 
 const cases = [
 	{
-		title: 'Explore',
-		text: 're:doubt is a powerful tool for TON blockchain research, complete with all the tools you need to discover, explore, and visualize'
-	},
-	{
 		title: 'Create and share',
 		text: 'Community-created analytics: Tons of dashboards for hundreds of projects. Query human-readable data with SQL. Follow key metrics for DeFi, NFTs, and more.'
+	},
+	{
+		title: 'Investigate',
+		text: 'Enriched on-chain data with wallet labels. Discover opportunities, perform due diligence, and defend portfolios with real-time dashboards and alerts.'
 	},
 	{
 		title: 'Detect and monitor',
