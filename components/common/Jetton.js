@@ -27,7 +27,7 @@ const Property = ({ name, value, change, tonPrice, ...rest }) => {
 	return (
 		<Box
 			display="flex"
-			justifyContent="flex-end"
+			justifyContent={{ base: 'center', lg: 'flex-end' }}
 			alignItems="center"
 			{...rest}
 		>
@@ -63,7 +63,7 @@ export const Jetton = ({ jetton, index, total, tonPrice, ...rest }) => {
 			display="flex"
 			justifyContent="space-between"
 			alignItems="center"
-			flexDir="row"
+			flexDir={{ base: 'column', lg: 'row' }}
 			{...rest}
 		>
 			<Box
@@ -71,6 +71,7 @@ export const Jetton = ({ jetton, index, total, tonPrice, ...rest }) => {
 				justifyContent="flex-start"
 				alignItems="center"
 				flexDir="row"
+				mb={{ base: '12px', lg: '0' }}
 			>
 				<Image
 					src={`${API_URL}v1/jettons/image/${address}`}

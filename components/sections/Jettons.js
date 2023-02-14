@@ -28,9 +28,12 @@ export const Jettons = ({ jettons }) => {
 				data-scroll-direction="horizontal"
 				data-scroll-speed="2"
 			>
-        💵 Trending jettons
+                💵 Trending jettons
 			</Title>
-			<Grid gridTemplateColumns="1fr 1fr 1fr" gap={margins}>
+			<Grid
+				gridTemplateColumns={{ base: '1fr', md: '1fr 1fr 1fr' }}
+				gap={margins}
+			>
 				{jettons.map((jetton, index) => (
 					<Jetton
 						jetton={jetton}
@@ -52,7 +55,9 @@ export const Jettons = ({ jettons }) => {
 				data-scroll-speed={2}
 			>
 				<Button>
-					<Link href="https://app.redoubt.online">Explore in app</Link>
+					<Link href="https://app.redoubt.online">
+                        Explore in app
+					</Link>
 				</Button>
 			</Box>
 		</Box>

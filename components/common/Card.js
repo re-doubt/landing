@@ -11,10 +11,15 @@ const Card = ({ title, text, index, ...rest }) => {
 			data-scroll-speed={`${index}`}
 			{...rest}
 		>
-			<Text fontWeight={600} fontSize="28px">
+			<Text
+				fontWeight={600}
+				fontSize={{ base: '16px', md: '20px', lg: '22px', xl: '28px' }}
+			>
 				{title}
 			</Text>
-			<Text fontSize={bodyFontSizes}>{text}</Text>
+			<Text fontSize={bodyFontSizes} mt={margins}>
+				{text}
+			</Text>
 		</Box>
 	)
 }

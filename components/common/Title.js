@@ -4,7 +4,7 @@ export const Title = ({ children, as }) => {
 	const getFontSize = (as) => {
 		switch (as) {
 		case 'h1':
-			return ['28px', '32px', '36px', '42px', '48px']
+			return ['22px', '28px', '34px', '40px', '46x']
 
 		case 'h2':
 			return ['18px', '22px', '28px', '32px', '36px']

@@ -1,5 +1,6 @@
 import { Box, Grid, Link } from '@chakra-ui/react'
 import { margins } from '../../pages'
+import { logoSize } from './Header'
 import { GithubIcon } from './icons/GithubIcon'
 import { TgIcon } from './icons/TgIcon'
 
@@ -14,12 +15,22 @@ const links = [
 	},
 	{
 		item: (
-			<GithubIcon color="var(--chakra-colors-black)" w="30px" h="30px" />
+			<GithubIcon
+				color="var(--chakra-colors-black)"
+				w={logoSize}
+				h={logoSize}
+			/>
 		),
 		link: 'https://github.com/re-doubt/'
 	},
 	{
-		item: <TgIcon color="var(--chakra-colors-black)" w="30px" h="30px" />,
+		item: (
+			<TgIcon
+				color="var(--chakra-colors-black)"
+				w={logoSize}
+				h={logoSize}
+			/>
+		),
 		link: 'https://t.me/re_doubt'
 	}
 ]

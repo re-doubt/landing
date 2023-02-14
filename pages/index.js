@@ -12,16 +12,21 @@ import { Toast } from '../components/common/Toast'
 
 export const bodyFontSizes = {
 	base: '12px',
-	sm: '14px',
-	md: '16px',
+	md: '14px',
 	lg: '18px',
 	xl: '20px'
 }
 
+const pxToInt = (px) => parseInt(px.substring(0, 2), 10)
+
 export const margins = { base: '12px', md: '18px', lg: '24px' }
 export const borderRadius = '24px'
 export const boxShadow = '8px 8px 5px rgba(0, 0, 0, 0.07);'
-const sectionMargins = { base: '20px', md: '20px', lg: '60px' }
+const sectionMargins = { base: '80px', sm: '100px', md: '200px', lg: '60px' }
+
+const footerMargins = Object.values(sectionMargins).map(
+	(el) => `${pxToInt(el) + 60}px`
+)
 
 export default function Home () {
 	const [jettons, setJettons] = useState([])
@@ -69,7 +74,7 @@ export default function Home () {
 
 					{/*  app sections */}
 					<Intro mt={sectionMargins} />
-					<UseCases />
+					<UseCases mt={{ ...sectionMargins, lg: '0' }} />
 
 					<Box mt={sectionMargins}>
 						{isLoading
@@ -83,7 +88,7 @@ export default function Home () {
 							)}
 					</Box>
 
-					<Footer mt={{ base: '40px', md: '60px', lg: '80px' }} />
+					<Footer mt={footerMargins} />
 				</Box>
 			</main>
 		</LocomotiveScrollProvider>
@@ -91,5 +96,5 @@ export default function Home () {
 }
 
 const wrapperProps = {
-	padding: '60px'
+	padding: { base: '20px', sm: '30px', md: '40px', lg: '50px', xl: '60px' }
 }

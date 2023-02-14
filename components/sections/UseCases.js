@@ -18,13 +18,22 @@ const cases = [
 	}
 ]
 
-export const UseCases = () => {
+export const UseCases = ({ ...rest }) => {
 	return (
-		<Box>
+		<Box {...rest}>
 			<Title as="h2">💼 Use cases</Title>
-			<Grid gridTemplateColumns="1fr 1fr 1fr" gap="24px" mt={margins}>
+			<Grid
+				gridTemplateColumns={{ base: '1fr', md: '1fr 1fr 1fr' }}
+				gap="24px"
+				mt={margins}
+			>
 				{cases.map(({ title, text }, i) => (
-					<Card title={title} text={text} key={`case-${i}`} index={i} />
+					<Card
+						title={title}
+						text={text}
+						key={`case-${i}`}
+						index={i}
+					/>
 				))}
 			</Grid>
 			<Box
@@ -40,7 +49,7 @@ export const UseCases = () => {
 						href="https://github.com/re-doubt/.github/blob/main/profile/README.MD"
 						target="_blank"
 					>
-            Explore in docs
+                        Explore in docs
 					</Link>
 				</Button>
 			</Box>
