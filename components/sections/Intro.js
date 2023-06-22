@@ -1,8 +1,23 @@
 import { Title } from '../common/Title'
-import { Box, Image, Text } from '@chakra-ui/react'
+import { Box, Image, Text, Button, Link } from '@chakra-ui/react'
+import { useDisclosure } from '@chakra-ui/react'
+import { useEffect, useRef, useState } from 'react'
+
+import {
+	AlertDialog,
+	AlertDialogBody,
+	AlertDialogFooter,
+	AlertDialogHeader,
+	AlertDialogContent,
+	AlertDialogOverlay,
+	AlertDialogCloseButton,
+} from '@chakra-ui/react'
 import { bodyFontSizes, margins } from '../../pages'
 
 export const Intro = ({ ...rest }) => {
+	const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: true})
+	const cancelRef = useRef()
+	
 	return (
 		<Box
 			display="flex"
@@ -24,6 +39,32 @@ export const Intro = ({ ...rest }) => {
                     activity so they can more safely participate in the growing
                     crypto economy.
 				</Text>
+				<AlertDialog
+					isOpen={isOpen}
+					leastDestructiveRef={cancelRef}
+					onClose={onClose}
+				>
+					<AlertDialogOverlay>
+						<AlertDialogContent>
+							<AlertDialogHeader fontSize='lg' fontWeight='bold'>
+								New re:doubt version is available!
+							</AlertDialogHeader>
+
+							<AlertDialogBody>
+								We are happy to invite you to test the new version of re:doubt at <Link href="https://beta.redoubt.online">beta.redoubt.online</Link>!
+							</AlertDialogBody>
+
+							<AlertDialogFooter>
+								<Button ref={cancelRef} onClick={onClose}>
+									Close
+								</Button>
+								<Button colorScheme='green' ml={3} onClick={() => {window.location = "https://beta.redoubt.online"}}>
+									Let's go!
+								</Button>
+							</AlertDialogFooter>
+						</AlertDialogContent>
+					</AlertDialogOverlay>
+				</AlertDialog>
 			</Box>
 
 			<Box
