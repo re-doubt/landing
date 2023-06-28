@@ -1,23 +1,23 @@
 import { Title } from '../common/Title'
-import { Box, Image, Text, Button, Link } from '@chakra-ui/react'
-import { useDisclosure } from '@chakra-ui/react'
-import { useEffect, useRef, useState } from 'react'
-
 import {
+	Box, Image, Text, Button, Link, useDisclosure,
 	AlertDialog,
 	AlertDialogBody,
 	AlertDialogFooter,
 	AlertDialogHeader,
 	AlertDialogContent,
 	AlertDialogOverlay,
-	AlertDialogCloseButton,
+	AlertDialogCloseButton
 } from '@chakra-ui/react'
+
+import { useEffect, useRef, useState } from 'react'
+
 import { bodyFontSizes, margins } from '../../pages'
 
 export const Intro = ({ ...rest }) => {
-	const { isOpen, onOpen, onClose } = useDisclosure({defaultIsOpen: true})
+	const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true })
 	const cancelRef = useRef()
-	
+
 	return (
 		<Box
 			display="flex"
@@ -58,7 +58,7 @@ export const Intro = ({ ...rest }) => {
 								<Button ref={cancelRef} onClick={onClose}>
 									Close
 								</Button>
-								<Button colorScheme='green' ml={3} onClick={() => {window.location = "https://beta.redoubt.online"}}>
+								<Button colorScheme='green' ml={3} onClick={() => { window.location = 'https://beta.redoubt.online' }}>
 									Let's go!
 								</Button>
 							</AlertDialogFooter>
