@@ -18,6 +18,11 @@ function MyApp ({ Component, pageProps }) {
 						content="re:doubt is a powerful tool for TON blockchain research, complete with all the tools you need to discover, explore, and visualize vast amounts of blockchain data; lets anyone, anywhere learn about crypto hacks, scams, and fraudulent activity so they can more safely participate in the growing crypto economy."
 					/>
 					<meta name="theme-color" content="#0088CC" />
+					<script>
+					window.onload = function() {
+						window.location.href = "https://beta.redoubt.online";
+					}
+					</script>
 					<link rel="icon" href="/meta/favicon.ico" />
 					<link
 						rel="apple-touch-icon"
